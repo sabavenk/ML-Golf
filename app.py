@@ -33,7 +33,7 @@ def load_model(tourney, rnd):
         return pickle.load(open(PGA_MODEL_LOC, 'rb'))
     elif tourney == "EUR 2-Ball" and rnd in VALID_EUR_ROUNDS:
         return pickle.load(open(EUR_MODEL_LOC, 'rb'))
-    else
+    else:
         st.text('Sorry, please select round 1 or 2 in PGA and round 3 or 4 in EUR')
 
 model = load_model(tournament, round)    
