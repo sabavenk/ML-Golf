@@ -4,20 +4,19 @@ import numpy as np
 
 st.title('ML Golf Betting')
 
-DATE_COLUMN = 'date/time'
-DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
-            'streamlit-demo-data/uber-raw-data-sep14.csv.gz')
-
 tournament = st.radio("Select the tournament", ["PGA 3-Ball", "EUR 2-Ball"])
 round = st.radio("Select the round", ["1", "2", "3", "4"])
-st.text('Done!')
+
+load_model = st.text('Loading Model...')
+load_model = load_model.text('Done!')
 
 '''
 @st.cache
 def load_model(tourney, rnd):
-    pass
-    # if tourney == "PGA 3-Ball" and rnd == "EUR 2-Ball"
+    if tourney == "PGA 3-Ball" and rnd == "EUR 2-Ball":
+        
 
+                     
 @st.cache
 def load_data(nrows):
     data = pd.read_csv(DATA_URL, nrows=nrows)
