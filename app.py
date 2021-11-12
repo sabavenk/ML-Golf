@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import pickle
+import sklearn 
 
 st.title('ML Golf Betting')
 
@@ -12,10 +14,18 @@ load_model = load_model.text('Done!')
 
 '''
 @st.cache
+def load_data(tourney):
+    pass
+
+@st.cache
 def load_model(tourney, rnd):
     if tourney == "PGA 3-Ball" and rnd == "EUR 2-Ball":
         
+        
 
+scaler = StandardScaler()
+X_train_norm = scaler.fit_transform(X_train)   
+X_cv_norm = scaler.transform(X_cv)
                      
 @st.cache
 def load_data(nrows):
