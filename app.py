@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import pickle
 import sklearn
-from sklearn.preprocessing import StandardScaler
 
 
 VALID_PGA_ROUNDS = {1, 2}
@@ -66,7 +65,7 @@ def normalize_data(data, tournment):
     new_df = (data - mu)/std
     return new_df
 
-normalized_input_data = normalize_data([player_1_data, player_2_data, player_3_data], scaler)
+normalized_input_data = normalize_data([player_1_data, player_2_data, player_3_data], tournament)
 st.text('Here is the normalized dataframe of your inputs:')
 st.dataframe(normalized_input_data)
 pred_load = st.text('Predicting outcome...')
