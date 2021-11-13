@@ -47,10 +47,15 @@ load_model_state = load_model_state.text('Done loading model!')
 st.text('Now, enter the data in the following format:')
 st.text("p0_pl_back, p0_R-3_scr, p0_R-2_scr, 'p0_R-1_scr")
 
+all_data = []
 player_1_data = st.text_input('Please input the data of Player 1 from the past 3 tournaments as shown above')
+all_data += player_1_data
 player_2_data = st.text_input('Please input the data of Player 2 from the past 3 tournaments as shown above')
-player_3_data = st.text_input('Please input the data of Player 3 from the past 3 tournaments as shown above')
-
+all_data += player_2_data
+if tournament == "PGA 3-Ball"
+    player_3_data = st.text_input('Please input the data of Player 3 from the past 3 tournaments as shown above')
+    all_data += player_3_data
+    
 # convert text input into format needed for model
 
 def standardize(data): 
@@ -77,8 +82,8 @@ def post_process_output(df, model):
 
   
 if st.button("Predict"): 
-  if (len(player_1_data) == len(player_2_data) == 4) or ((tournament == "EUR 3-Ball") and (len(player_1_data) == len(player_2_data) == len(player_3_data) == 4)):
-    normalized_input_data = normalize_data([player_1_data, player_2_data, player_3_data], tournament)
+  if (len(player_1_data) != 4 or len(player_2_data) != 4):
+    normalized_input_data = normalize_data(all_data, tournament)
     st.text('Here is the normalized dataframe of your inputs:')
     st.dataframe(normalized_input_data)
     output = post_process_output(normalized_input_data)
