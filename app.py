@@ -65,20 +65,24 @@ def normalize_data(data, tournment):
     new_df = (data - mu)/std
     return new_df
 
-st.dataframe(standardize([player_1_data, player_2_data, player_3_data]))
+if ((tournament == "PGA 3-Ball") and (len(player_1_data) == len(player_2_data) == len(palyer_3_data) == len(mu_PGA)) or (tournament == "EUR 3-Ball") and (len(player_1_data) == len(player_2_data) == len(palyer_3_data) == len(mu_PGA)))
+  st.dataframe(standardize([player_1_data, player_2_data, player_3_data]))
 
-normalized_input_data = normalize_data([player_1_data, player_2_data, player_3_data], tournament)
-st.text('Here is the normalized dataframe of your inputs:')
-st.dataframe(normalized_input_data)
-pred_load = st.text('Predicting outcome...')
+  normalized_input_data = normalize_data([player_1_data, player_2_data, player_3_data], tournament)
+  st.text('Here is the normalized dataframe of your inputs:')
+  st.dataframe(normalized_input_data)
+  pred_load = st.text('Predicting outcome...')
 
-@st.cache
-def post_process_output(df, model):
+  @st.cache
+  def post_process_output(df, model):
     predictions = model.predict(df)
     # do more to predictions before returning 
     return predictions
 
-output = post_process_output(normalized_input_data)
-pred_load.text('Finished! See below for results')
+  output = post_process_output(normalized_input_data)
+  pred_load.text('Finished! See below for results')
 
-st.write(output)
+  st.write(output)
+
+else:
+  st.text('NEED INPUT DATA!!')
