@@ -57,15 +57,14 @@ f_04 = st.number_input('Round score from 1 tourn ago [for Player with lowest odd
 player_1_data = [f_01, f_02, f_03, f_04]
 all_data += player_1_data
 
-st.text('2) Inuput data for Player with 2nd lowest odds:')
-f_11 = st.number_input('Odds [for Player with 2nd lowest odds]:')
-f_12 = st.number_input('Round score from 3 tourns ago [for Player with 2nd lowest odds]')
-f_13 = st.number_input('Round score from 2 tourns ago [for Player with 2nd lowest odds]')
-f_14 = st.number_input('Round score from 1 tourn ago [for Player with 2nd lowest odds]')
-player_2_data = [f_11, f_12, f_13, f_14]
-all_data += player_2_data
-
 if tournament == "PGA 3-Ball":
+    st.text('2) Inuput data for Player with 2nd lowest odds:')
+    f_11 = st.number_input('Odds [for Player with 2nd lowest odds]:')
+    f_12 = st.number_input('Round score from 3 tourns ago [for Player with 2nd lowest odds]')
+    f_13 = st.number_input('Round score from 2 tourns ago [for Player with 2nd lowest odds]')
+    f_14 = st.number_input('Round score from 1 tourn ago [for Player with 2nd lowest odds]')
+    player_2_data = [f_11, f_12, f_13, f_14]
+    all_data += player_2_data
     st.text('3) Inuput data for Player with highest odds:')
     f_21 = st.number_input('Odds [for Player with highest odds]:')
     f_22 = st.number_input('Round score from 3 tourns ago [for Player with highest odds]')
@@ -73,6 +72,14 @@ if tournament == "PGA 3-Ball":
     f_24 = st.number_input('Round score from 1 tourn ago [for Player with highest odds]')
     player_2_data = [f_21, f_22, f_23, f_24]
     all_data += player_3_data
+else:
+    st.text('2) Inuput data for Player with highest odds:')
+    f_11 = st.number_input('Odds [for Player with highest odds]:')
+    f_12 = st.number_input('Round score from 3 tourns ago [for Player with highest odds]')
+    f_13 = st.number_input('Round score from 2 tourns ago [for Player with highest odds]')
+    f_14 = st.number_input('Round score from 1 tourn ago [for Player with highest odds]')
+    player_2_data = [f_11, f_12, f_13, f_14]
+    all_data += player_2_data
     
 # convert text input into format needed for model
 
