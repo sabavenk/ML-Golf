@@ -50,6 +50,7 @@ st.text('Now enter the following data points...')
 all_data = []
 player_1_data , player_2_data , player_3_data = [], [], []
 st.text('1) Inuput data for Player with lowest odds:')
+f_name1 = st.text_input('Name [for Player with lowest odds]:')
 f_01 = st.number_input('Odds [for Player with lowest odds]:')
 f_02 = st.number_input('Round score from 3 tourns ago [for Player with lowest odds]')
 f_03 = st.number_input('Round score from 2 tourns ago [for Player with lowest odds]')
