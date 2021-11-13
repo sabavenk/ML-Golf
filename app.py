@@ -45,11 +45,11 @@ def load_model(tourney, rnd):
 model = load_model(tournament, round)    
 load_model_state = load_model_state.text('Done loading model!')
 
-st.text('Now, enter the following data points...')
+st.text('Now enter the following data points...')
 
 all_data = []
 player_1_data , player_2_data , player_3_data = [], [], []
-st.text('a) Inuput data for Player with lowest odds:')
+st.text('1) Inuput data for Player with lowest odds:')
 f_01 = st.number_input('Odds [for Player with lowest odds]:')
 f_02 = st.number_input('Round score from 3 tourns ago [for Player with lowest odds]')
 f_03 = st.number_input('Round score from 2 tourns ago [for Player with lowest odds]')
@@ -57,7 +57,7 @@ f_04 = st.number_input('Round score from 1 tourn ago [for Player with lowest odd
 player_1_data = [f_01, f_02, f_03, f_04]
 all_data += player_1_data
 
-st.text('b) Inuput data for Player with 2nd lowest odds:')
+st.text('2) Inuput data for Player with 2nd lowest odds:')
 f_11 = st.number_input('Odds [for Player with 2nd lowest odds]:')
 f_12 = st.number_input('Round score from 3 tourns ago [for Player with 2nd lowest odds]')
 f_13 = st.number_input('Round score from 2 tourns ago [for Player with 2nd lowest odds]')
@@ -66,7 +66,7 @@ player_2_data = [f_11, f_12, f_13, f_14]
 all_data += player_2_data
 
 if tournament == "PGA 3-Ball":
-    st.text('c) Inuput data for Player with highest odds:')
+    st.text('3) Inuput data for Player with highest odds:')
     f_21 = st.number_input('Odds [for Player with highest odds]:')
     f_22 = st.number_input('Round score from 3 tourns ago [for Player with highest odds]')
     f_23 = st.number_input('Round score from 2 tourns ago [for Player with highest odds]')
