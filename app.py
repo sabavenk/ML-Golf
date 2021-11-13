@@ -53,6 +53,7 @@ def standardize(data):
     output = []
     for row in data:
         output += str.split(',')
+    print(output)
     return list(map(int, output))
 
 
