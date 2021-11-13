@@ -98,7 +98,7 @@ if st.button("Predict"):
     normalized_input_data = normalize_data(all_data, tournament)
     st.text('Here is the normalized dataframe of your inputs:')
     st.dataframe(normalized_input_data)
-    output = post_process_output(normalized_input_data)
+    output = post_process_output(normalized_input_data, model)
     st.success('Finished! See below for results')
     print(output)
       
