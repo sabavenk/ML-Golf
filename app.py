@@ -53,8 +53,7 @@ def standardize(data):
     output = []
     for row in data:
         output += str.split(',')
-    print(output)
-    return list(map(int, output))
+    return output #list(map(int, output))
 
 
 def normalize_data(data, tournment):
@@ -65,6 +64,8 @@ def normalize_data(data, tournment):
       mu, std = np.array(mu_EUR), np.array(sigma_EUR)
     new_df = (data - mu)/std
     return new_df
+
+st.dataframe(stardardize(data))
 
 normalized_input_data = normalize_data([player_1_data, player_2_data, player_3_data], tournament)
 st.text('Here is the normalized dataframe of your inputs:')
