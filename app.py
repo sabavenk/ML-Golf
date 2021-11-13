@@ -65,7 +65,7 @@ def standardize(data):
     output = []
     for row in data:
         output += str.split(',')
-    return list(map(int, output))
+    return [int(e) for e in output if e.isnumeric()]   #list(map(int, output))
 
 
 def normalize_data(data, tournment):
