@@ -12,8 +12,8 @@ html_temp = """
     """
 st.markdown(html_temp, unsafe_allow_html = True) 
 
-VALID_PGA_ROUNDS = {1, 2, 3, 4}
-VALID_EUR_ROUNDS = {1, 2, 3, 4}
+VALID_PGA_ROUNDS = {1, 2}
+VALID_EUR_ROUNDS = {3, 4}
 EUR_MODEL_LOC = 'svm_ror_EUR_R[3, 4]_2b_all_data.sav'
 PGA_MODEL_LOC = 'svm_ror_PGA_R[1, 2]_3b_all_data.sav'
 X_features_EUR = ['p0_pl_back', 'p0_R-3_scr', 'p0_R-2_scr', 'p0_R-1_scr', 'p1_pl_back', 
@@ -45,34 +45,33 @@ def load_model(tourney, rnd):
 model = load_model(tournament, round)    
 load_model_state = load_model_state.text('Done loading model!')
 
-st.text('Now, enter the data in the following format:')
-st.text("p0_pl_back, p0_R-3_scr, p0_R-2_scr, 'p0_R-1_scr")
+st.text('Now, enter the following data points...')
 
 all_data = []
 player_1_data , player_2_data , player_3_data = [], [], []
-st.text('Please input the data of Player 1 from the past 3 tournaments as shown above')
-f_01 = st.number_input('Odds')
-f_02 = st.number_input('Score 3')
-f_03 = st.number_input('Score 2')
-f_04 = st.number_input('Score 1')
+st.text('a) Inuput data for Player with lowest odds:')
+f_01 = st.number_input('Odds [for Player with lowest odds]:')
+f_02 = st.number_input('Round score from 3 tourns ago [for Player with lowest odds]')
+f_03 = st.number_input('Round score from 2 tourns ago [for Player with lowest odds]')
+f_04 = st.number_input('Round score from 1 tourn ago [for Player with lowest odds]')
 player_1_data = [f_01, f_02, f_03, f_04]
 all_data += player_1_data
 
-st.text('Please input the data of Player 2 from the past 3 tournaments as shown above')
-f_11 = st.number_input('Odds_1')
-f_12 = st.number_input('Score_1 3')
-f_13 = st.number_input('Score_1 2')
-f_14 = st.number_input('Score_1 1')
+st.text('b) Inuput data for Player with 2nd lowest odds:')
+f_11 = st.number_input('Odds [for Player with lowest odds]:')
+f_12 = st.number_input('Round score from 3 tourns ago [for Player with 2nd lowest odds]')
+f_13 = st.number_input('Round score from 2 tourns ago [for Player with 2nd lowest odds]')
+f_14 = st.number_input('Round score from 1 tourn ago [for Player with 2nd lowest odds]')
 player_2_data = [f_11, f_12, f_13, f_14]
 all_data += player_2_data
 
 if tournament == "PGA 3-Ball":
-    st.text('Please input the data of Player 3 from the past 3 tournaments as shown above')
-    f_21 = st.number_input('Odds_2')
-    f_22 = st.number_input('Score_2 3')
-    f_23 = st.number_input('Score_2 2')
-    f_24 = st.number_input('Score_2 1')
-    player_3_data = [f_21, f_22, f_23, f_24]
+    st.text('c) Inuput data for Player with highest odds:')
+    f_21 = st.number_input('Odds [for Player with highest odds]:')
+    f_22 = st.number_input('Round score from 3 tourns ago [for Player with highest odds]')
+    f_23 = st.number_input('Round score from 2 tourns ago [for Player with highest odds]'
+    f_24 = st.number_input('Round score from 1 tourn ago [for Player with highest odds]')
+    player_2_data = [f_21, f_22, f_23, f_24]
     all_data += player_3_data
     
 # convert text input into format needed for model
