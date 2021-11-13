@@ -95,13 +95,10 @@ def post_process_output(df, model):
 
   
 if st.button("Predict"): 
-  if (len(player_1_data) != 4 or len(player_2_data) != 4):
     normalized_input_data = normalize_data(all_data, tournament)
     st.text('Here is the normalized dataframe of your inputs:')
     st.dataframe(normalized_input_data)
     output = post_process_output(normalized_input_data)
     st.success('Finished! See below for results')
     print(output)
-  else:
-    st.text('CHECK INPUT DATA!!')
       
