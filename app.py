@@ -65,7 +65,7 @@ def normalize_data(data, tournment):
     new_df = (data - mu)/std
     return new_df
 
-st.dataframe(stardardize(data))
+st.dataframe(standardize(data))
 
 normalized_input_data = normalize_data([player_1_data, player_2_data, player_3_data], tournament)
 st.text('Here is the normalized dataframe of your inputs:')
