@@ -52,7 +52,7 @@ player_1_data = st.text_input('Please input the data of Player 1 from the past 3
 all_data += player_1_data
 player_2_data = st.text_input('Please input the data of Player 2 from the past 3 tournaments as shown above')
 all_data += player_2_data
-if tournament == "PGA 3-Ball"
+if tournament == "PGA 3-Ball":
     player_3_data = st.text_input('Please input the data of Player 3 from the past 3 tournaments as shown above')
     all_data += player_3_data
     
