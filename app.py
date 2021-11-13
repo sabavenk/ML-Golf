@@ -67,7 +67,7 @@ def normalize_data(data, transformer):
     return new_df
 
 normalized_input_data = normalize_data([player_1_data, player_2_data, player_3_data], scaler)
-st.text('Here's the normalized dataframe of your inputs:')
+st.text('Here is the normalized dataframe of your inputs:')
 st.dataframe(normalized_input_data)
 pred_load = st.text('Predicting outcome...')
 
