@@ -6,7 +6,7 @@ import sklearn
 
 html_temp = """ 
     <div style ="background-color:yellow;padding:13px"> 
-    <h1 style ="color:black;text-align:center;">ML Gold Prediction App</h1> 
+    <h1 style ="color:black;text-align:center;">ML Golf Prediction App</h1> 
     </div> 
     """
 st.markdown(html_temp, unsafe_allow_html = True) 
@@ -28,8 +28,6 @@ mu_EUR = [1.843833736884584, -1.0653753026634383, -1.1832122679580306, -1.230024
           2.6536319612590797, -0.3357546408393866, -0.5819209039548022, -0.38579499596448746]
 sigma_EUR = [0.1936053784751192, 3.0491937304074836, 3.0177589532997438, 3.1301397570277776, 
              0.4731022206648472, 3.1569549991015955, 3.096436941689078, 3.0658089992624813]
-
-st.title('ML Golf Betting')
 
 tournament = st.radio("Select the tournament", ["PGA 3-Ball", "EUR 2-Ball"])
 round = st.radio("Select the round", ["1", "2", "3", "4"])
