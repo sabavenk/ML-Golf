@@ -12,8 +12,8 @@ html_temp = """
     """
 st.markdown(html_temp, unsafe_allow_html = True) 
 
-VALID_PGA_ROUNDS = {1, 2}
-VALID_EUR_ROUNDS = {3, 4}
+VALID_PGA_ROUNDS = {1, 2, 3, 4}
+VALID_EUR_ROUNDS = {1, 2, 3, 4}
 EUR_MODEL_LOC = 'svm_ror_EUR_R[3, 4]_2b_all_data.sav'
 PGA_MODEL_LOC = 'svm_ror_PGA_R[1, 2]_3b_all_data.sav'
 X_features_EUR = ['p0_pl_back', 'p0_R-3_scr', 'p0_R-2_scr', 'p0_R-1_scr', 'p1_pl_back', 
