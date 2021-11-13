@@ -12,8 +12,8 @@ html_temp = """
     """
 st.markdown(html_temp, unsafe_allow_html = True) 
 
-VALID_PGA_ROUNDS = {1, 2}
-VALID_EUR_ROUNDS = {3, 4}
+VALID_PGA_ROUNDS = {1, 2, 3, 4}
+VALID_EUR_ROUNDS = {1, 2, 3, 4}
 EUR_MODEL_LOC = 'svm_ror_EUR_R[3, 4]_2b_all_data.sav'
 PGA_MODEL_LOC = 'svm_ror_PGA_R[1, 2]_3b_all_data.sav'
 X_features_EUR = ['p0_pl_back', 'p0_R-3_scr', 'p0_R-2_scr', 'p0_R-1_scr', 'p1_pl_back', 
@@ -46,10 +46,11 @@ model = load_model(tournament, round)
 load_model_state = load_model_state.text('Done loading model!')
 
 st.text('Now, enter the data in the following format:')
+st.text("p0_pl_back, p0_R-3_scr, p0_R-2_scr, 'p0_R-1_scr")
 
 all_data = []
 player_1_data , player_2_data , player_3_data = [], [], []
-st.text('Please input the data for Player with lowest odds in the requested fields below:')
+st.text('Please input the data of Player 1 from the past 3 tournaments as shown above')
 f_01 = st.number_input('Odds')
 f_02 = st.number_input('Score 3')
 f_03 = st.number_input('Score 2')
@@ -71,7 +72,7 @@ if tournament == "PGA 3-Ball":
     f_22 = st.number_input('Score_2 3')
     f_23 = st.number_input('Score_2 2')
     f_24 = st.number_input('Score_2 1')
-    player_2_data = [f_21, f_22, f_23, f_24]
+    player_3_data = [f_21, f_22, f_23, f_24]
     all_data += player_3_data
     
 # convert text input into format needed for model
