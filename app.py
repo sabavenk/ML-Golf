@@ -51,10 +51,10 @@ st.text("p0_pl_back, p0_R-3_scr, p0_R-2_scr, 'p0_R-1_scr")
 all_data = []
 player_1_data , player_2_data , player_3_data = [], [], []
 st.text('Please input the data of Player 1 from the past 3 tournaments as shown above')
-f_01 = st.numeric_input('Odds')
-f_02 = st.numeric_input('Score 3')
-f_03 = st.numeric_input('Score 2')
-f_04 = st.numeric_input('Score 1')
+f_01 = st.number_input('Odds')
+f_02 = st.number_input('Score 3')
+f_03 = st.number_input('Score 2')
+f_04 = st.number_input('Score 1')
 player_1_data = [f_01, f_02, f_03, f_04]
 all_data += player_1_data
 
