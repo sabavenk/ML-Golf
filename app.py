@@ -65,7 +65,7 @@ def normalize_data(data, tournment):
     new_df = (data - mu)/std
     return new_df
 
-if ((tournament == "PGA 3-Ball") and (len(player_1_data) == len(player_2_data) == len(player_3_data) == len(mu_PGA)) or (tournament == "EUR 3-Ball") and (len(player_1_data) == len(player_2_data) == len(player_3_data) == len(mu_PGA))):
+if ((tournament == "PGA 3-Ball") and (len(player_1_data) == len(player_2_data) == 4) or (tournament == "EUR 3-Ball") and (len(player_1_data) == len(player_2_data) == len(player_3_data) == 4)):
   st.dataframe(standardize([player_1_data, player_2_data, player_3_data]))
 
   normalized_input_data = normalize_data([player_1_data, player_2_data, player_3_data], tournament)
