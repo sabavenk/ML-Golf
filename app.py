@@ -84,7 +84,7 @@ def normalize_data(df, tournment):
       mu, std = mu_PGA, sigma_PGA
     else:
       mu, std = mu_EUR, sigma_EUR
-    new_df = (df - mu)/std
+    new_df = (np.array(df) - np.array(mu)/np.array(std)
     return new_df
 
   
