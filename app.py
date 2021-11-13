@@ -48,7 +48,7 @@ player_2_data = st.text_input('Please input the data of Player 2 from the past 3
 player_3_data = st.text_input('Please input the data of Player 3 from the past 3 tournaments as shown above')
 
 # convert text input into format needed for model
-@st.cache
+
 def standardize(data): 
     output = []
     for row in data:
@@ -73,7 +73,6 @@ if ((tournament == "PGA 3-Ball") and (len(player_1_data) == len(player_2_data) =
   st.dataframe(normalized_input_data)
   pred_load = st.text('Predicting outcome...')
 
-  @st.cache
   def post_process_output(df, model):
     predictions = model.predict(df)
     # do more to predictions before returning 
