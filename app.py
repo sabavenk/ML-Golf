@@ -64,7 +64,7 @@ if tournament == "PGA 3-Ball":
 def standardize(data): 
     output = []
     for row in data:
-        output += str.split(',')
+        output.extend(str.split(','))
     return [int(e) for e in output if e.isnumeric()]   #list(map(int, output))
 
 st.write(standardize(all_data))
