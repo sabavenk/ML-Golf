@@ -49,32 +49,41 @@ st.text('Now, enter the data in the following format:')
 st.text("p0_pl_back, p0_R-3_scr, p0_R-2_scr, 'p0_R-1_scr")
 
 all_data = []
-player_1_data = st.text_input('Please input the data of Player 1 from the past 3 tournaments as shown above')
-# st.write(player_1_data.split(','))
+player_1_data , player_2_data , player_3_data = [], [], []
+st.text('Please input the data of Player 1 from the past 3 tournaments as shown above')
+f_01 = st.numeric_input('Odds')
+f_02 = st.numeric_input('Score 3')
+f_03 = st.numeric_input('Score 2')
+f_04 = st.numeric_input('Score 1')
+player_1_data = [f_01, f_02, f_03, f_04]
 all_data += player_1_data
-player_2_data = st.text_input('Please input the data of Player 2 from the past 3 tournaments as shown above')
+
+st.text('Please input the data of Player 1 from the past 3 tournaments as shown above')
+f_11 = st.numeric_input('Odds')
+f_12 = st.numeric_input('Score 3')
+f_13 = st.numeric_input('Score 2')
+f_14 = st.numeric_input('Score 1')
+player_2_data = [f_11, f_12, f_13, f_14]
 all_data += player_2_data
-# st.write(player_2_data.split(','))
+
 if tournament == "PGA 3-Ball":
-    player_3_data = st.text_input('Please input the data of Player 3 from the past 3 tournaments as shown above')
+    st.text('Please input the data of Player 1 from the past 3 tournaments as shown above')
+    f_21 = st.numeric_input('Odds')
+    f_22 = st.numeric_input('Score 3')
+    f_23 = st.numeric_input('Score 2')
+    f_24 = st.numeric_input('Score 1')
+    player_2_data = [f_21, f_22, f_23, f_24]
     all_data += player_3_data
     
 # convert text input into format needed for model
 
-def standardize(data): 
-    output = []
-    for row in data:
-        output.extend(str.split(','))
-    return [int(e) for e in output if e.isnumeric()]   #list(map(int, output))
+st.dataframe(pd.DataFrame(all_data))
 
-st.write(standardize(all_data))
-
-def normalize_data(data, tournment):
-    df = np.array(standardize(data))
+def normalize_data(df, tournment):
     if tournament == "PGA 3-Ball":
-      mu, std = np.array(mu_PGA), np.array(sigma_PGA)
+      mu, std = mu_PGA, sigma_PGA
     else:
-      mu, std = np.array(mu_EUR), np.array(sigma_EUR)
+      mu, std = mu_EUR, sigma_EUR
     new_df = (df - mu)/std
     return new_df
 
