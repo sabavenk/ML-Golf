@@ -49,7 +49,7 @@ player_3_data = st.text_input('Please input the data of Player 3 from the past 3
 
 # convert text input into format needed for model
 @st.cache
-def standardize_data(data): 
+def standardize(data): 
     output = []
     for row in data:
         output += str.split(',')
