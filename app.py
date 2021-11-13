@@ -50,11 +50,11 @@ st.text("p0_pl_back, p0_R-3_scr, p0_R-2_scr, 'p0_R-1_scr")
 
 all_data = []
 player_1_data = st.text_input('Please input the data of Player 1 from the past 3 tournaments as shown above')
-st.write(player_1_data)
+st.write(player_1_data.split(','))
 all_data += player_1_data
 player_2_data = st.text_input('Please input the data of Player 2 from the past 3 tournaments as shown above')
 all_data += player_2_data
-st.write(player_2_data)
+st.write(player_2_data.split(','))
 if tournament == "PGA 3-Ball":
     player_3_data = st.text_input('Please input the data of Player 3 from the past 3 tournaments as shown above')
     all_data += player_3_data
