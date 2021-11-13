@@ -59,19 +59,19 @@ player_1_data = [f_01, f_02, f_03, f_04]
 all_data += player_1_data
 
 st.text('Please input the data of Player 1 from the past 3 tournaments as shown above')
-f_11 = st.numeric_input('Odds')
-f_12 = st.numeric_input('Score 3')
-f_13 = st.numeric_input('Score 2')
-f_14 = st.numeric_input('Score 1')
+f_11 = st.number_input('Odds')
+f_12 = st.number_input('Score 3')
+f_13 = st.number_input('Score 2')
+f_14 = st.number_input('Score 1')
 player_2_data = [f_11, f_12, f_13, f_14]
 all_data += player_2_data
 
 if tournament == "PGA 3-Ball":
     st.text('Please input the data of Player 1 from the past 3 tournaments as shown above')
-    f_21 = st.numeric_input('Odds')
-    f_22 = st.numeric_input('Score 3')
-    f_23 = st.numeric_input('Score 2')
-    f_24 = st.numeric_input('Score 1')
+    f_21 = st.number_input('Odds')
+    f_22 = st.number_input('Score 3')
+    f_23 = st.number_input('Score 2')
+    f_24 = st.number_input('Score 1')
     player_2_data = [f_21, f_22, f_23, f_24]
     all_data += player_3_data
     
