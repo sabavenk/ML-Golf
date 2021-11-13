@@ -4,6 +4,12 @@ import numpy as np
 import pickle
 import sklearn
 
+html_temp = """ 
+    <div style ="background-color:yellow;padding:13px"> 
+    <h1 style ="color:black;text-align:center;">ML Gold Prediction App</h1> 
+    </div> 
+    """
+st.markdown(html_temp, unsafe_allow_html = True) 
 
 VALID_PGA_ROUNDS = {1, 2}
 VALID_EUR_ROUNDS = {3, 4}
@@ -53,7 +59,7 @@ def standardize(data):
     output = []
     for row in data:
         output += str.split(',')
-    return output #list(map(int, output))
+    return list(map(int, output))
 
 
 def normalize_data(data, tournment):
@@ -65,23 +71,21 @@ def normalize_data(data, tournment):
     new_df = (data - mu)/std
     return new_df
 
-if ((tournament == "PGA 3-Ball") and (len(player_1_data) == len(player_2_data) == 4) or (tournament == "EUR 3-Ball") and (len(player_1_data) == len(player_2_data) == len(player_3_data) == 4)):
-  st.dataframe(standardize([player_1_data, player_2_data, player_3_data]))
-
-  normalized_input_data = normalize_data([player_1_data, player_2_data, player_3_data], tournament)
-  st.text('Here is the normalized dataframe of your inputs:')
-  st.dataframe(normalized_input_data)
-  pred_load = st.text('Predicting outcome...')
-
-  def post_process_output(df, model):
+  
+def post_process_output(df, model):
     predictions = model.predict(df)
     # do more to predictions before returning 
     return predictions
 
-  output = post_process_output(normalized_input_data)
-  pred_load.text('Finished! See below for results')
-
-  st.write(output)
-
-else:
-  st.text('NEED INPUT DATA!!')
+  
+if st.button("Predict"): 
+  if (len(player_1_data) == len(player_2_data) == 4) or ((tournament == "EUR 3-Ball") and (len(player_1_data) == len(player_2_data) == len(player_3_data) == 4)):
+    normalized_input_data = normalize_data([player_1_data, player_2_data, player_3_data], tournament)
+    st.text('Here is the normalized dataframe of your inputs:')
+    st.dataframe(normalized_input_data)
+    output = post_process_output(normalized_input_data)
+    st.success('Finished! See below for results')
+    print(output)
+  else:
+    st.text('CHECK INPUT DATA!!')
+      
