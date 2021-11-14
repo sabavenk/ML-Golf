@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-import sklearn
+from sklearn.naive_bayes import GaussianNB, MultinomialNB, BernoulliNB
 import logging 
 
 html_temp = """ 
@@ -14,8 +14,8 @@ st.markdown(html_temp, unsafe_allow_html = True)
 
 VALID_PGA_ROUNDS = {1, 2}
 VALID_EUR_ROUNDS = {3, 4}
-EUR_MODEL_LOC = 'Streamlit_2ball_all_data.sav'
-PGA_MODEL_LOC = 'Streamlit_3ball_all_data.sav'
+EUR_MODEL = BernouliNB(alpha=1.14 binarize=0.0, class_prior=None, fit_prior=True)
+PGA_MODEL = BernouliNB(alpha=1.9 binarize=1.25, class_prior=None, fit_prior=True)
 X_features_EUR = ['p0_pl_back', 'p0_R-3_scr', 'p0_R-2_scr', 'p0_R-1_scr', 'p1_pl_back', 
               'p1_R-3_scr', 'p1_R-2_scr', 'p1_R-1_scr']
 X_features_PGA = X_features_EUR + ['p2_pl_back', 'p2_R-3_scr', 'p2_R-2_scr', 'p2_R-1_scr']
@@ -38,9 +38,9 @@ load_model_state = st.text('Loading Model...')
 @st.cache
 def load_model(tourney, rnd):
     if tourney == "PGA 3-Ball" and rnd in VALID_PGA_ROUNDS:
-        return pickle.load(open(PGA_MODEL_LOC, 'rb'))
+        return PGA_MODEL
     elif tourney == "EUR 2-Ball" and rnd in VALID_EUR_ROUNDS:
-        return pickle.load(open(EUR_MODEL_LOC, 'rb'))
+        return EUR_MODEL
 
 model = load_model(tournament, round)    
 load_model_state = load_model_state.text('Done loading model!')
