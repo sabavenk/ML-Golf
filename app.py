@@ -35,14 +35,7 @@ round = st.radio("Select the round", ["1", "2", "3", "4"])
 
 load_model_state = st.text('Loading Model...')
 
-
-def load_model(tourney, rnd):
-    if tourney == "PGA 3-Ball" and rnd in VALID_PGA_ROUNDS:
-        return PGA_MODEL
-    elif tourney == "EUR 2-Ball" and rnd in VALID_EUR_ROUNDS:
-        return EUR_MODEL
-
-model = load_model(tournament, round)    
+model = PGA_MODEL if tournament == "PGA 3-Ball" else EUR_MODEL   
 load_model_state = load_model_state.text('Done loading model!')
 
 st.text('Now enter the following data points...')
