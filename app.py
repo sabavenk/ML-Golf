@@ -14,8 +14,8 @@ st.markdown(html_temp, unsafe_allow_html = True)
 
 VALID_PGA_ROUNDS = {1, 2}
 VALID_EUR_ROUNDS = {3, 4}
-EUR_MODEL = BernouliNB(alpha=1.14, binarize=0.0, class_prior=None, fit_prior=True)
-PGA_MODEL = BernouliNB(alpha=1.9, binarize=1.25, class_prior=None, fit_prior=True)
+EUR_MODEL = BernoulliNB(alpha=1.14, binarize=0.0, class_prior=None, fit_prior=True)
+PGA_MODEL = BernoulliNB(alpha=1.9, binarize=1.25, class_prior=None, fit_prior=True)
 X_features_EUR = ['p0_pl_back', 'p0_R-3_scr', 'p0_R-2_scr', 'p0_R-1_scr', 'p1_pl_back', 
               'p1_R-3_scr', 'p1_R-2_scr', 'p1_R-1_scr']
 X_features_PGA = X_features_EUR + ['p2_pl_back', 'p2_R-3_scr', 'p2_R-2_scr', 'p2_R-1_scr']
