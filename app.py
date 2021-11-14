@@ -101,4 +101,5 @@ if st.button("Predict"):
     output = model.predict(normalized_input_data.reshape(1, -1))
     st.success('Finished! See below for results')
     st.write(output)
+    st.write(pl_names[int(output)])
       
