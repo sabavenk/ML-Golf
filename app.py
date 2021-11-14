@@ -14,8 +14,8 @@ st.markdown(html_temp, unsafe_allow_html = True)
 
 VALID_PGA_ROUNDS = {1, 2}
 VALID_EUR_ROUNDS = {3, 4}
-EUR_MODEL_LOC = 'svm_ror_EUR_R[3, 4]_2b_all_data.sav'
-PGA_MODEL_LOC = 'svm_ror_PGA_R[1, 2]_3b_all_data.sav'
+EUR_MODEL_LOC = 'Streamlit_2ball_all_data.sav'
+PGA_MODEL_LOC = 'Streamlit_3ball_all_data.sav'
 X_features_EUR = ['p0_pl_back', 'p0_R-3_scr', 'p0_R-2_scr', 'p0_R-1_scr', 'p1_pl_back', 
               'p1_R-3_scr', 'p1_R-2_scr', 'p1_R-1_scr']
 X_features_PGA = X_features_EUR + ['p2_pl_back', 'p2_R-3_scr', 'p2_R-2_scr', 'p2_R-1_scr']
