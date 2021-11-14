@@ -99,7 +99,7 @@ if st.button("Predict"):
     model = pickle.load(open(PGA_MODEL_LOC, 'rb')) if tournament == "PGA 3-Ball" else pickle.load(open(EUR_MODEL_LOC, 'rb'))   
     load_model_state = load_model_state.text('Done loading model!')
     output = model.predict(normalized_input_data.reshape(1, -1))
-    st.success('Finished! See below for results')
+    st.success('Finished! See below for predicted winner...')
     st.write(output)
     st.write(pl_names[int(output)])
       
