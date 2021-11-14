@@ -75,7 +75,7 @@ else:
     f_14 = st.number_input('Round score from 1 tourn ago [for Player with highest odds]')
     player_2_data = [f_11, f_12, f_13, f_14]
     all_data += player_2_data
-    pl_names = [f_name1, f_name2]
+    pl_names = [f_name1, f_name2, f_name1+' & '+f_name2]
     
 # convert text input into format needed for model
 
