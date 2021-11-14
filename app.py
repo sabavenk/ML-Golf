@@ -35,7 +35,7 @@ round = st.radio("Select the round", ["1", "2", "3", "4"])
 
 load_model_state = st.text('Loading Model...')
 
-@st.cache
+
 def load_model(tourney, rnd):
     if tourney == "PGA 3-Ball" and rnd in VALID_PGA_ROUNDS:
         return PGA_MODEL
