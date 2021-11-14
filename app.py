@@ -73,7 +73,7 @@ if tournament == "PGA 3-Ball":
     f_22 = st.number_input('Round score from 3 tourns ago [for Player with highest odds]')
     f_23 = st.number_input('Round score from 2 tourns ago [for Player with highest odds]')
     f_24 = st.number_input('Round score from 1 tourn ago [for Player with highest odds]')
-    player_2_data = [f_21, f_22, f_23, f_24]
+    player_3_data = [f_21, f_22, f_23, f_24]
     all_data += player_3_data
     pl_names = [f_name1, f_name2, f_name3]
 else:
