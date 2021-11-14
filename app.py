@@ -14,8 +14,8 @@ st.markdown(html_temp, unsafe_allow_html = True)
 
 VALID_PGA_ROUNDS = {1, 2}
 VALID_EUR_ROUNDS = {3, 4}
-EUR_MODEL = BernoulliNB(alpha=1.14, binarize=0.0, class_prior=None, fit_prior=True)
-PGA_MODEL = BernoulliNB(alpha=1.9, binarize=1.25, class_prior=None, fit_prior=True)
+EUR_MODEL_LOC = 'Streamlit_2ball_all_data.sav'
+PGA_MODEL_LOC = 'Streamlit_3ball_all_data.sav'
 X_features_EUR = ['p0_pl_back', 'p0_R-3_scr', 'p0_R-2_scr', 'p0_R-1_scr', 'p1_pl_back', 
               'p1_R-3_scr', 'p1_R-2_scr', 'p1_R-1_scr']
 X_features_PGA = X_features_EUR + ['p2_pl_back', 'p2_R-3_scr', 'p2_R-2_scr', 'p2_R-1_scr']
@@ -32,11 +32,6 @@ sigma_EUR = [0.1936053784751192, 3.0491937304074836, 3.0177589532997438, 3.13013
 
 tournament = st.radio("Select the tournament", ["PGA 3-Ball", "EUR 2-Ball"])
 round = st.radio("Select the round", ["1", "2", "3", "4"])
-
-load_model_state = st.text('Loading Model...')
-
-model = PGA_MODEL if tournament == "PGA 3-Ball" else EUR_MODEL   
-load_model_state = load_model_state.text('Done loading model!')
 
 st.text('Now enter the following data points...')
 
@@ -93,17 +88,15 @@ def normalize_data(df, tournment):
     return new_df
 
   
-def post_process_output(df, model):
-    predictions = model.predict(df)
-    # do more to predictions before returning 
-    return predictions
-
-  
-if st.button("Predict"): 
+if st.button("Predict"):
     normalized_input_data = normalize_data(all_data, tournament)
     st.text('Here is the normalized dataframe of your inputs:')
     st.dataframe(normalized_input_data)
-    output = post_process_output(normalized_input_data, model)
+    
+    load_model_state = st.text('Loading Model...')
+    model = pickle.load(open(PGA_MODEL_LOC, 'rb')) if tournament == "PGA 3-Ball" else pickle.load(open(EUR_MODEL_LOC, 'rb'))   
+    load_model_state = load_model_state.text('Done loading model!')
+    output = model.predict(normalized_input_data)
     st.success('Finished! See below for results')
-    print(output)
+    st.write(output)
       
