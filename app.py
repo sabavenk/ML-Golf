@@ -30,18 +30,18 @@ mu_EUR = [1.843833736884584, -1.0653753026634383, -1.1832122679580306, -1.230024
 sigma_EUR = [0.1936053784751192, 3.0491937304074836, 3.0177589532997438, 3.1301397570277776, 
              0.4731022206648472, 3.1569549991015955, 3.096436941689078, 3.0658089992624813]
 
-tournament = st.radio("Select the scenario", ["PGA 3-Ball", "EUR 2-Ball"])
-round = st.radio("Select the tournament round", ["1", "2", "3", "4"])
+tournament = st.radio("A) Select the scenario", ["PGA 3-Ball", "EUR 2-Ball"])
+round = st.radio("B) Select the tournament round", ["1", "2", "3", "4"])
 
 scr_url = 'https://www.livesport.com/en/golf/rankings/owgr/'
 odds_url = 'https://www.betfair.com/exchange/plus/en/golf-betting-3'
 
-st.write('Check currently available head-to-head matchup with live odds @ [Betfair](%s)' % odds_url)
-st.text('Now enter the following data points...')
+st.write('C) Check currently available head-to-head matchup with live odds @ [Betfair](%s)' % odds_url)
+st.text('D) Now enter the following data points...')
 
 all_data, pl_names = [],[]
 player_1_data , player_2_data , player_3_data = [], [], []
-st.text('1) Inuput data for Player with lowest odds:')
+st.text('1. Inuput data for Player with lowest odds:')
 f_name1 = st.text_input('Name [for Player with lowest odds]:')
 f_01 = st.number_input('Odds [for Player with lowest odds]:')
 f_02 = st.number_input('Round score from 3 tourns ago [for Player with lowest odds]')
@@ -51,7 +51,7 @@ player_1_data = [f_01, f_02, f_03, f_04]
 all_data += player_1_data
 
 if tournament == "PGA 3-Ball":
-    st.text('2) Inuput data for Player with 2nd lowest odds:')
+    st.text('2. Inuput data for Player with 2nd lowest odds:')
     f_name2 = st.text_input('Name [for Player with 2nd lowest odds]:')
     f_11 = st.number_input('Odds [for Player with 2nd lowest odds]:')
     f_12 = st.number_input('Round score from 3 tourns ago [for Player with 2nd lowest odds]')
@@ -59,7 +59,7 @@ if tournament == "PGA 3-Ball":
     f_14 = st.number_input('Round score from 1 tourn ago [for Player with 2nd lowest odds]')
     player_2_data = [f_11, f_12, f_13, f_14]
     all_data += player_2_data
-    st.text('3) Inuput data for Player with highest odds:')
+    st.text('3. Inuput data for Player with highest odds:')
     f_name3 = st.text_input('Name [for Player with highest odds]:')
     f_21 = st.number_input('Odds [for Player with highest odds]:')
     f_22 = st.number_input('Round score from 3 tourns ago [for Player with highest odds]')
@@ -71,7 +71,7 @@ if tournament == "PGA 3-Ball":
                 f_name1+' & '+f_name2, f_name1+' & '+f_name3, f_name2+' & '+f_name3,
                 f_name1+' & '+f_name2+' & '+f_name3]
 else:
-    st.text('2) Inuput data for Player with highest odds:')
+    st.text('2. Inuput data for Player with highest odds:')
     f_name2 = st.text_input('Name [for Player with highest odds]:')
     f_11 = st.number_input('Odds [for Player with highest odds]:')
     f_12 = st.number_input('Round score from 3 tourns ago [for Player with highest odds]')
@@ -94,7 +94,7 @@ def normalize_data(df, tournment):
     return new_df
 
   
-if st.button("Predict"):
+if st.button("E) Predict"):
     normalized_input_data = normalize_data(all_data, tournament)
     st.text('Here is the normalized dataframe of your inputs:')
     st.dataframe(normalized_input_data)
