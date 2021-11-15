@@ -33,6 +33,11 @@ sigma_EUR = [0.1936053784751192, 3.0491937304074836, 3.0177589532997438, 3.13013
 tournament = st.radio("Select the tournament", ["PGA 3-Ball", "EUR 2-Ball"])
 round = st.radio("Select the round", ["1", "2", "3", "4"])
 
+scr_url = 'https://www.livesport.com/en/golf/rankings/owgr/'
+odds_url = 'https://www.betfair.com/exchange/plus/en/golf-betting-3'
+
+st.write('Choose a head-to-head matchup with live odds @ [link](%s)' % odds_url)
+st.markdown('Choose a head-to-head matchup with live odds @ [link](%s)' % odds_url)
 st.text('Now enter the following data points...')
 
 all_data, pl_names = [],[]
