@@ -33,7 +33,7 @@ sigma_EUR = [0.1936053784751192, 3.0491937304074836, 3.0177589532997438, 3.13013
 tournament = st.radio("A) Select the scenario", ["PGA 3-Ball", "EUR 2-Ball"])
 round = st.radio("B) Select the tournament round", ["1", "2", "3", "4"])
 
-scr_url = 'https://www.livesport.com/en/golf/rankings/owgr/'
+scrs_url = 'https://www.livesport.com/en/golf/rankings/owgr/'
 odds_url = 'https://www.betfair.com/exchange/plus/en/golf-betting-3'
 
 st.write('C) Check currently available head-to-head matchup with live odds @ [Betfair](%s)' % odds_url)
@@ -54,7 +54,7 @@ if tournament == "PGA 3-Ball":
     st.text('2. Inuput data for Player with 2nd lowest odds:')
     f_name2 = st.text_input('Name [for Player with 2nd lowest odds]:')
     f_11 = st.number_input('Odds [for Player with 2nd lowest odds]:')
-    f_12 = st.number_input('Round score from 3 tourns ago [for Player with 2nd lowest odds]')
+    f_12 = st.number_input('Round score from 3 tourns ago [for Player with 2nd lowest odds]... scores available @[Livesport](%s)' % scrs_url)
     f_13 = st.number_input('Round score from 2 tourns ago [for Player with 2nd lowest odds]')
     f_14 = st.number_input('Round score from 1 tourn ago [for Player with 2nd lowest odds]')
     player_2_data = [f_11, f_12, f_13, f_14]
