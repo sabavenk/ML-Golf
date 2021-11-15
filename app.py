@@ -30,14 +30,13 @@ mu_EUR = [1.843833736884584, -1.0653753026634383, -1.1832122679580306, -1.230024
 sigma_EUR = [0.1936053784751192, 3.0491937304074836, 3.0177589532997438, 3.1301397570277776, 
              0.4731022206648472, 3.1569549991015955, 3.096436941689078, 3.0658089992624813]
 
-tournament = st.radio("Select the tournament", ["PGA 3-Ball", "EUR 2-Ball"])
-round = st.radio("Select the round", ["1", "2", "3", "4"])
+tournament = st.radio("Select the scenario", ["PGA 3-Ball", "EUR 2-Ball"])
+round = st.radio("Select the tournament round", ["1", "2", "3", "4"])
 
 scr_url = 'https://www.livesport.com/en/golf/rankings/owgr/'
 odds_url = 'https://www.betfair.com/exchange/plus/en/golf-betting-3'
 
-st.write('Choose a head-to-head matchup with live odds @ [link](%s)' % odds_url)
-st.markdown('Choose a head-to-head matchup with live odds @ [link](%s)' % odds_url)
+st.write('Check currently available head-to-head matchup with live odds @ [Betfair](%s)' % odds_url)
 st.text('Now enter the following data points...')
 
 all_data, pl_names = [],[]
