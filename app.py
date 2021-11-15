@@ -36,12 +36,13 @@ round = st.radio("B) Select the tournament round", ["1", "2", "3", "4"])
 scrs_url = 'https://www.livesport.com/en/golf/rankings/owgr/'
 odds_url = 'https://www.betfair.com/exchange/plus/en/golf-betting-3'
 
-st.write('C) Check currently available head-to-head matchup with live odds @ [Betfair](%s)' % odds_url)
+st.write('C) Select currently available head-to-head matchup with live odds @ [Betfair](%s)' % odds_url)
 st.text('D) Now enter the following data points...')
 
 all_data, pl_names = [],[]
 player_1_data , player_2_data , player_3_data = [], [], []
 st.text('1. Inuput data for Player with lowest odds:')
+st.write('... historical player scores available @[Livesport](%s)' % scrs_url)
 f_name1 = st.text_input('Name [for Player with lowest odds]:')
 f_01 = st.number_input('Odds [for Player with lowest odds]:')
 f_02 = st.number_input('Round score from 3 tourns ago [for Player with lowest odds]')
@@ -52,14 +53,16 @@ all_data += player_1_data
 
 if tournament == "PGA 3-Ball":
     st.text('2. Inuput data for Player with 2nd lowest odds:')
+    st.write('... historical player scores available @[Livesport](%s)' % scrs_url)
     f_name2 = st.text_input('Name [for Player with 2nd lowest odds]:')
     f_11 = st.number_input('Odds [for Player with 2nd lowest odds]:')
-    f_12 = st.number_input('Round score from 3 tourns ago [for Player with 2nd lowest odds]... scores available @[Livesport](%s)' % scrs_url)
+    f_12 = st.number_input('Round score from 3 tourns ago [for Player with 2nd lowest odds]')
     f_13 = st.number_input('Round score from 2 tourns ago [for Player with 2nd lowest odds]')
     f_14 = st.number_input('Round score from 1 tourn ago [for Player with 2nd lowest odds]')
     player_2_data = [f_11, f_12, f_13, f_14]
     all_data += player_2_data
     st.text('3. Inuput data for Player with highest odds:')
+    st.write('... historical player scores available @[Livesport](%s)' % scrs_url)
     f_name3 = st.text_input('Name [for Player with highest odds]:')
     f_21 = st.number_input('Odds [for Player with highest odds]:')
     f_22 = st.number_input('Round score from 3 tourns ago [for Player with highest odds]')
@@ -72,6 +75,7 @@ if tournament == "PGA 3-Ball":
                 f_name1+' & '+f_name2+' & '+f_name3]
 else:
     st.text('2. Inuput data for Player with highest odds:')
+    st.write('... historical player scores available @[Livesport](%s)' % scrs_url)
     f_name2 = st.text_input('Name [for Player with highest odds]:')
     f_11 = st.number_input('Odds [for Player with highest odds]:')
     f_12 = st.number_input('Round score from 3 tourns ago [for Player with highest odds]')
